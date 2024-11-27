@@ -20,7 +20,7 @@
             'OTHER_CFLAGS': ['-mmacos-version-min=10.15', '-std=c++20'],
             'OTHER_LDFLAGS': ['-framework AuthenticationServices'],
             'GCC_GENERATE_DEBUGGING_SYMBOLS': 'YES',
-            'DEBUG_INFORMATION_FORMAT': 'dwarf-with-dsym',
+            # 'DEBUG_INFORMATION_FORMAT': 'dwarf-with-dsym',
           },
         },
         # else
