@@ -274,6 +274,7 @@ AuthRequest::AuthRequest(const Napi::CallbackInfo& info)
         }
       });
     };
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 140400
     if (@available(macos 14.4, *)) {
       webAuthSess_ = ns_ref<ASWebAuthenticationSession>([webAuthSess
                 initWithURL:urlNSURL
@@ -281,6 +282,7 @@ AuthRequest::AuthRequest(const Napi::CallbackInfo& info)
                                 callbackWithCustomScheme:cbSchemeNSStr]
           completionHandler:completionHandler]);
     } else {
+#endif
       webAuthSess_ = ns_ref<ASWebAuthenticationSession>([webAuthSess
                 initWithURL:urlNSURL
           callbackURLScheme:cbSchemeNSStr
